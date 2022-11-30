@@ -8,6 +8,7 @@ module.exports = () => {
       email: "chikki@gmail.com",
       password: "chikki",
       role: "admin",
+      addressOne: "14 Oshinowo street, kettu."
     },
   ];
 
