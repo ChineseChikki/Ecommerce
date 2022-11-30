@@ -65,25 +65,7 @@ function handleChange ({target: {value, name, files}}){
   if(name === 'images') value = files;
   setProduct(state => ({...state, [name]: value}))
 }
-async function createProduct(e) {
-  e.preventDefault()
-  setLoading(true)
-  try{
 
-    let formdata = new FormData(e.target);
-  const res = await API.send({type: action.method, to: action.url, 
-  useAlert: true, payload: formdata})
-
-  setLoading(false)
-  if(res.success) {
-    clearForm()
-    navigate(`/products/${res.data.id}`, {state: res.data})  
-  }
-  }catch(err) {
-    console.log(err);
-    setLoading(false)
-  }
-}
 const action = state
 ? {
     url: "/products/" + state?.id,
@@ -106,7 +88,7 @@ async function createProduct(e) {
   setLoading(false)
   if(res.success) {
     clearForm()
-    navigate(`/products/${res.data.id}`, {state: res.data})  
+    navigate('/')
   }
   }catch(err) {
     console.log(err);

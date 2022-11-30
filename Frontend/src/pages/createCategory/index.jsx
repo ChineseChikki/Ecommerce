@@ -5,7 +5,6 @@ import { useCategoriesContext } from "../../contexts/category";
 
 export default function CreateCategory() {
   const { state } = useLocation();
-  const navigate = useNavigate();
   const form = useRef();
   const {
     handleChange,

@@ -1,6 +1,7 @@
 import React, { useState, createContext, useContext } from "react";
 import Backend from "../utils/backend";
 import Alert from "../utils/alert";
+import { useNavigate } from "react-router-dom";
 
 const CategoriesContext = createContext({});
 export const useCategoriesContext = () => useContext(CategoriesContext);
@@ -10,6 +11,7 @@ export default function CategoriesProvider({ children }) {
   const [isLoading, setLoading] = useState(false);
   const [category, setCategory] = useState({ image: "", name: "" });
 
+  const navigate = useNavigate();
   const API = new Backend();
 
   async function fetchCategories() {
@@ -35,7 +37,7 @@ export default function CategoriesProvider({ children }) {
     if (name === "image") value = files[0];
     setCategory((state) => ({ ...state, [name]: value }));
   }
-  async function CreateCategory(e) {
+  async function createCategory(e) {
     e.preventDefault();
     setLoading(true);
     try {
@@ -63,7 +65,7 @@ export default function CategoriesProvider({ children }) {
     categories,
     isLoading,
     handleChange,
-    CreateCategory,
+    createCategory,
     clearForm,
     category,
   };

@@ -38,6 +38,8 @@ const CheckOut = () => {
   const { createOrder } = useOrderContext();
   const { myUser: user, setOpen } = useUserContext();
 
+const {clearCart} =  useCartContext()
+
   const [addresses, setAddresses] = React.useState({
     all: [],
     current: {},
@@ -63,7 +65,7 @@ const CheckOut = () => {
     fullName: user?.name,
     address: user?.addressOne || user?.addressTwo,
   };
-  console.log(homeAddress, user);
+  
   React.useEffect(() => {
     setAddresses((state) => ({
       ...state,
@@ -102,8 +104,9 @@ const CheckOut = () => {
               checkedOut: true,
               order: data,
             }));
-            setCart([]);
+            clearCart()
             Storage.set("cart", JSON.stringify([]));
+            clearCart
           }
         });
       }
