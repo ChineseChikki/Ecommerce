@@ -8,13 +8,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  const {
-    signUpPayload,
-    setSignUpPayload,
-    setLoading,
-    loading,
-    resetForm,
-  } = useUserContext();
+  const { signUpPayload, setSignUpPayload, setLoading, loading, resetForm } =
+    useUserContext();
 
   useEffect(() => {
     if (signUpPayload.password && signUpPayload.confirmPassword) {
@@ -93,7 +88,7 @@ const SignUp = () => {
             onChange={handleChange}
           />
 
-<label htmlFor="addressOne" className="mb-3 block pl-2 text-2xl">
+          <label htmlFor="addressOne" className="mb-3 block pl-2 text-2xl">
             Home Address
           </label>
           <input
@@ -108,7 +103,7 @@ const SignUp = () => {
           />
 
           <label htmlFor="tel" className="mb-3 block pl-2 text-2xl">
-            Phone Number
+            Phone
           </label>
           <input
             className="block focus:shadow mb-4 p-4 focus:outline-none text-2xl border w-full"

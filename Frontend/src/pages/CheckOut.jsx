@@ -38,7 +38,7 @@ const CheckOut = () => {
   const { createOrder } = useOrderContext();
   const { myUser: user, setOpen } = useUserContext();
 
-const {clearCart} =  useCartContext()
+  const { clearCart } = useCartContext();
 
   const [addresses, setAddresses] = React.useState({
     all: [],
@@ -60,12 +60,12 @@ const {clearCart} =  useCartContext()
   let homeAddress = {
     id: user?.id,
     type: "Default Address",
-    phoneNumber: user?.phone,
+    phone: user?.phone,
     email: user?.email,
     fullName: user?.name,
     address: user?.addressOne || user?.addressTwo,
   };
-  
+
   React.useEffect(() => {
     setAddresses((state) => ({
       ...state,
@@ -104,9 +104,9 @@ const {clearCart} =  useCartContext()
               checkedOut: true,
               order: data,
             }));
-            clearCart()
+            clearCart();
             Storage.set("cart", JSON.stringify([]));
-            clearCart
+            clearCart;
           }
         });
       }
@@ -186,9 +186,9 @@ const {clearCart} =  useCartContext()
                       </span>
                       <br />
                       <span>
-                        Phone Number:{" "}
+                        Phone:{" "}
                         <span className="text-[#212529]">
-                          {addresses?.current?.phoneNumber}
+                          {addresses?.current?.phone}
                         </span>
                       </span>
                       <br />
@@ -381,9 +381,9 @@ const {clearCart} =  useCartContext()
                     </span>
                     <br />
                     <span>
-                      Phone Number:{" "}
+                      Phone:{" "}
                       <span className="text-[#212529]">
-                        {addresses?.current?.phoneNumber}
+                        {addresses?.current?.phone}
                       </span>
                     </span>
                     <br />
