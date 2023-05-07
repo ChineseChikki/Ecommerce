@@ -12,7 +12,7 @@ exports.createOrder = async (req, res, next) => {
       charset: "alphanumeric",
     });
 
-    const order = await await Order.create(payload);
+    const order =  await Order.create(payload);
 
     if (order) {
       order.products.forEach(async (data) => {
